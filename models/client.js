@@ -4,11 +4,17 @@ const clients = [
 	lastname: "Do", 
 	id: 1
 	},
-	
+
 	{
-	 firstname: "Peter", 
-	 lastname: "Pan", 
+	 firstname: "Peter",
+	 lastname: "Pan",
 	 id: 2
+	},
+
+	{
+	 firstname: "Matt",
+	 lastname: "berr",
+	 id: 3
 	}
 ];
 

@@ -3,11 +3,25 @@ const express = require('express')
 const router = express()
 
 // Import Clients Model for database 
-const ClientModel = require('./models/client')
+const ClientModel = require('../models/client')
 
 // List clients
 router.get('/', function(req,res) {
-	ClientModel.getClients();
+ let list =	ClientModel.getClients();
+	res.json({clients: list})
+})
+
+
+// Create a New Client
+router.post('/', function(req, res) {
+	let newClient = ClientModel.createOne(req.body)
+
+	if(newClient) {
+		res.json({client: newClient})
+	}
+	else {
+		res.json({error: 'Client can\'t be created'})
+	}
 })
 // 	ClientModel.find().sort('lastname').select({__v: 0, id: 0})
 // 	 .then(result => {

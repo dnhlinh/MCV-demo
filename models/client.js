@@ -45,6 +45,10 @@ function deleteone(idvalue, firstnameUpdate, lastnameUpdate) {
 
 }
 
+function createOne(jsonClient) {
+	// TODO: add this
+}
+
 module.exports.getClient = getClient
 module.exports.find = find
 module.export.findone = findone

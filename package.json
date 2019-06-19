@@ -1,0 +1,14 @@
+{
+  "name": "program-with-mvc",
+  "version": "0.0.0",
+  "description": "simple test app with mvc ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Linh Do",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

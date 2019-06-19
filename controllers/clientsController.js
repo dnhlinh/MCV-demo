@@ -1,3 +1,4 @@
+
 const express = require('express')
 const router = express()
 
@@ -26,12 +27,9 @@ router.post('/', function(req, res) {
 
 // Update a Client, only signed user
 router.put('/', function(req, res) {
-	clients.findone({id: 1}, (error, result) => {
+	clients.findone(1, (error, result) => {
 		if(result) {
-			clients.updateone({id:1}, {
-				firstname: 'Linh2',
-				lastname: 'Do2'
-			})
+			clients.updateone(1, "Linh2", "Do2")
 		}
 		else {
 			res.json({error: 'id not found'})

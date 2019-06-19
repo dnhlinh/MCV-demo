@@ -7,7 +7,8 @@ const ClientModel = require('../models/client')
 
 // List clients
 router.get('/', function(req,res) {
-	ClientModel.getClients();
+ let list =	ClientModel.getClients();
+	res.json({clients: list})
 })
 
 

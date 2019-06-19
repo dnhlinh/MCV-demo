@@ -35,7 +35,7 @@ function findone(idvalue) {
 	// }
 }
 
-function updateone(idvalue, firstnameUpdate, lastnameUpdate) {	
+function updateone(idvalue, firstnameUpdate, lastnameUpdate) {
 
 }
 
@@ -50,9 +50,10 @@ function createOne(jsonClient) {
 	return jsonClient;
 }
 
-module.exports.getClient = this.getClient
-module.exports.find = find
-module.exports.createOne = createOne
+module.exports.getClients = getClients
+// module.exports.createOne = createOne
 // module.export.findone = findone
 // module.export.updateone = updateone
 // module.export.deleteone = deleteone
+
+// module.exports = this

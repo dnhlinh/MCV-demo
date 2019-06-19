@@ -1,16 +1,14 @@
-const clients = [
+let clients = [
 	{ 
-	firstname: "Linh", 
-	lastname: "Do", 
+	firstname: "Linh",
+	lastname: "Do",
 	id: 1
 	},
-
 	{
 	 firstname: "Peter",
 	 lastname: "Pan",
 	 id: 2
 	},
-
 	{
 	 firstname: "Matt",
 	 lastname: "berr",
@@ -46,7 +44,10 @@ function deleteone(idvalue, firstnameUpdate, lastnameUpdate) {
 }
 
 function createOne(jsonClient) {
-	// TODO: add this
+	jsonClient.id = clients.length + 1;
+	clients.push(jsonClient);
+
+	return jsonClient;
 }
 
 module.exports.getClient = getClient

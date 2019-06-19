@@ -1,5 +1,5 @@
 let clients = [
-	{ 
+	{
 	firstname: "Linh",
 	lastname: "Do",
 	id: 1
@@ -51,7 +51,7 @@ function createOne(jsonClient) {
 }
 
 module.exports.getClients = getClients
-// module.exports.createOne = createOne
+module.exports.createOne = createOne
 // module.export.findone = findone
 // module.export.updateone = updateone
 // module.export.deleteone = deleteone

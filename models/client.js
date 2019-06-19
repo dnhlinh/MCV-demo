@@ -21,18 +21,18 @@ function getClients() {
 }
 
 function find(key) {
-	for key in clients {
-		return key + ": " + clients[key];
-	}
+	// for key in clients {
+	// 	return key + ": " + clients[key];
+	// }
 
 }
 
 function findone(idvalue) {
-	for id in clients {
-		if clients[id] = idvalue {
-			return clients[firstname, lastname]
-		}
-	}
+	// for id in clients {
+	// 	if clients[id] = idvalue {
+	// 		return clients[firstname, lastname]
+	// 	}
+	// }
 }
 
 function updateone(idvalue, firstnameUpdate, lastnameUpdate) {	
@@ -50,8 +50,9 @@ function createOne(jsonClient) {
 	return jsonClient;
 }
 
-module.exports.getClient = getClient
+module.exports.getClient = this.getClient
 module.exports.find = find
-module.export.findone = findone
-module.export.updateone = updateone
-module.export.deleteone = deleteone
+module.exports.createOne = createOne
+// module.export.findone = findone
+// module.export.updateone = updateone
+// module.export.deleteone = deleteone

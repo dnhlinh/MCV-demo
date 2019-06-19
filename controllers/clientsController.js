@@ -3,7 +3,7 @@ const express = require('express')
 const router = express()
 
 // Import Clients Model for database 
-const ClientModel = require('./models/client')
+const ClientModel = require('../models/client')
 
 // List clients
 router.get('/', function(req,res) {

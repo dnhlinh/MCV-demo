@@ -12,7 +12,7 @@ const clients = [
 	}
 ];
 
-function getClient() {
+function getClients() {
 	return clients;
 }
 

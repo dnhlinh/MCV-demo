@@ -9,6 +9,19 @@ const ClientModel = require('./models/client')
 router.get('/', function(req,res) {
 	ClientModel.getClients();
 })
+
+
+// Create a New Client
+router.post('/', function(req, res) {
+	let newClient = ClientModel.createOne(req.body)
+
+	if(newClient) {
+		res.json({client: newClient})
+	}
+	else {
+		res.json({error: 'Client can\'t be created'})
+	}
+})
 // 	ClientModel.find().sort('lastname').select({__v: 0, id: 0})
 // 	 .then(result => {
 // 	 	res.status(200).json({result: clients})

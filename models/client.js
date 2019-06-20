@@ -1,46 +1,48 @@
-const clients = [
-	{ 
-	firstname: "Linh", 
-	lastname: "Do", 
+let clients = [
+	{
+	firstname: "Linh",
+	lastname: "Do",
 	id: 1
 	},
-	
 	{
-	 firstname: "Peter", 
-	 lastname: "Pan", 
+	 firstname: "Peter",
+	 lastname: "Pan",
 	 id: 2
+	},
+	{
+	 firstname: "Matt",
+	 lastname: "Berr",
+	 id: 3
 	}
 ];
 
-function getClient() {
+function getClients() {
 	return clients;
 }
 
-function find(key) {
-	for key in clients {
-		return key + ": " + clients[key];
-	}
+function createOne(jsonClient) {
+	jsonClient.id = clients.length + 1;
+	clients.push(jsonClient);
 
+	return jsonClient;
 }
 
-function findone(idvalue) {
-	for id in clients {
-		if clients[id] = idvalue {
-			return clients[firstname, lastname]
+function findById(idValue) {
+	for(var i = 0; i < clients.length; i++) {
+		if (clients[i].id == idValue) {
+			return clients.id;
+		}
+	
+function update(idValue) {
+	for(var i = 0; i < clients.length; i++) {
+		if(clients[i].id == idValue) {
+			clients[i].firstname = "Linh02";
+			clients[i].lastname = "Do02";
+			return clients[i];
 		}
 	}
 }
-
-function updateone(idvalue, firstnameUpdate, lastnameUpdate) {	
-
-}
-
-function deleteone(idvalue, firstnameUpdate, lastnameUpdate) {	
-
-}
-
-module.exports.getClient = getClient
-module.exports.find = find
-module.export.findone = findone
-module.export.updateone = updateone
-module.export.deleteone = deleteone
+module.exports.getClients = getClients
+module.exports.createOne = createOne
+module.exports.findById = findById
+module.exports.update = update

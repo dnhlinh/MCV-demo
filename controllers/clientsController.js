@@ -23,36 +23,19 @@ router.post('/', function(req, res) {
 		res.json({error: 'Client can\'t be created'})
 	}
 })
-// 	ClientModel.find().sort('lastname').select({__v: 0, id: 0})
-// 	 .then(result => {
-// 	 	res.status(200).json({result: clients})
-// 	 })
-// 	 .catch(err => {
-// 	 	res.status(500).json({message: 'Something went wrong'})
-// 	 })
 
+// Edit a Client
+router.put('/', function(req,res){
+	let idFound = ClientModel.findById(req.client.id)  
+	if (clientid) {
+			let updateClient = ClientModel.update(req.client.id)	
+			res.status(200).json({client: updateClient})	
+	}
+	else {
+			res.status(404).json({error: "Client not found"})
+	}
+})
 
-// // Create a New Client
-// router.post('/', function(req, res) {
-// 	clients.push({
-// 		firstname: 'Lady',
-// 		lastname: 'Gaga',
-// 		id: '3'
-// 	})
-// })
-
-// Update a Client, only signed user
-// router.put('/', function(req, res) {
-// 	clients.findone(1, (error, result) => {
-// 		if(result) {
-// 			clients.updateone(1, "Linh2", "Do2")
-// 		}
-// 		else {
-// 			res.json({error: 'id not found'})
-// 		}
-// 	})
-
-// })
 
 // Delete a Client, only signed user
 // router.delete('/id', function(req, res){

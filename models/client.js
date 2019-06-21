@@ -20,6 +20,14 @@ function getClients() {
 	return clients;
 }
 
+function getOneClient(idValue) {
+	for(var i = 0; i < clients.length; i++) {
+		if(clients[i].id == idvalue) {
+			return clients[i]
+		}
+	}
+}
+
 function createOne(jsonClient) {
 	jsonClient.id = clients.length + 1;
 	clients.push(jsonClient);
@@ -43,6 +51,7 @@ function update(idValue) {
 	}
 }
 module.exports.getClients = getClients
+module.exports.getOneClient = getOneClient
 module.exports.createOne = createOne
 module.exports.findById = findById
 module.exports.update = update

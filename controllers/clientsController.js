@@ -47,20 +47,14 @@ router.put('/:id', function(req,res){
 })
 
 // Delete a Client by ID
-router.delete('/', function(req,res) {
-	let idFound = ClientModel.findById(req.client.id)
-	if (idFound) {
-		let deleteClient = ClientModel.deleteOne(req.client.id)
+router.delete('/:id', function(req,res) {
+		let deleteClient = ClientModel.deleteOne(req.params.id)
 		if (deleteClient) {
 			res.status(200).json({result: "Successfully deleted"})
 		}
 		else {
 			res.status(500).json({result: "Something went wrong"})
-		}	
-	}
-	else {
-			res.status(400).json({err: "Client not found"})
-	}
+		}
 })
 
 module.exports = router

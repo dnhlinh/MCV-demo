@@ -54,17 +54,16 @@ function update(idValue, clientJSON) {
 }
 
 function deleteOne(idValue) {
-	for (var i = 0; i < clients.length; i++) {
-		if (clients[i].id == idvalue) {
-			delete clients[i];
-			return clients;
-		}
+	index = indexById(idValue)
+	if (index){
+		delete clients[index];
+		return true
 	}
+	return false
 }
 
 module.exports.getClients = getClients
 module.exports.getOneClient = getOneClient
 module.exports.createOne = createOne
-module.exports.findById = findById
 module.exports.update = update
 module.exports.deleteOne = deleteOne

@@ -13,7 +13,7 @@ router.get('/', function(req,res) {
 
 // Return single Client This have all the information
 router.get('/:id', function(req,res) {
-	let client = ClientModel.getOneClient(req.client.id) // client or null
+	let client = ClientModel.getOneClient(req.params.id) // client or undefined
 	if(client) {
 	 	res.status(200).json(client)
 	}

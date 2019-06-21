@@ -22,10 +22,12 @@ function getClients() {
 
 function getOneClient(idValue) {
 	for (var i = 0; i < clients.length; i++) {
-		if (clients[i].id == idvalue) {
+		if (clients[i].id == idValue) {
 			return clients[i]
 		}
 	}
+
+	return undefined
 }
 
 function createOne(jsonClient) {

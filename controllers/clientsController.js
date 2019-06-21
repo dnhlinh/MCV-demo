@@ -36,24 +36,21 @@ router.put('/', function(req,res){
 	}
 })
 
-
-// Delete a Client, only signed user
-// router.delete('/id', function(req, res){
-// 	clients.findone({id: 2}, (err, result) => {
-// 		if(result) {
-// 			clients.deleteone({id: 2})
-// 			 .then((err) => {
-// 			 	res.status(200).json({ result: 'ok'})
-// 			 })
-// 			 .catch(err => {
-// 			 	res.status(500).json({ message: 'Something went wrong', error: err})
-// 			 })
-// 		}
-// 		else {
-// 			res.json({ error: 'id not found'})
-// 		}
-// 	})
-// })
-
+// Delete a Client by ID
+router.delete('/', function(req,res) {
+	let idFound = ClientModel.findById(req.client.id)
+	if (idFound) {
+		let deleteClient = ClientModel.deleteOne(req.client.id)
+		if (deleteClient) {
+			res.status(200).json({result: "Successfully deleted"})
+		}
+		else {
+			res.status(500).json({result: "Something went wrong"})
+		}	
+	}
+	else {
+			res.status(400).json({err: "Client not found"})
+	}
+})
 
 module.exports = router

@@ -5,14 +5,17 @@ const router = express()
 // Import Clients Model for database 
 const ClientModel = require('../models/client')
 
-// List clients
+// List clients with reduced information
 router.get('/', function(req,res) {
-//  let list =	ClientModel.getClients();
-// 	res.json({clients: list})
-	let idFound = ClientModel.findById(req.client.id)
-	if(idFound) {
-	 	let listOne = ClientModel.getOneClient(req.client.id) 
-	 	res.status(200).json({client: listOne})
+  let list =	ClientModel.getClients(); // list or []
+	res.json({clients: list})
+})
+
+// Return single Client This have all the information
+router.get('/:id', function(req,res) {
+	let client = ClientModel.getOneClient(req.client.id) // client or null
+	if(client) {
+	 	res.status(200).json(client)
 	}
 	else {
 		res.status(404).json({error: "Client not found"})

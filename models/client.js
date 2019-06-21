@@ -1,18 +1,18 @@
 let clients = [
 	{
-	firstname: "Linh",
-	lastname: "Do",
-	id: 1
+		firstname: "Linh",
+		lastname: "Do",
+		id: 1
 	},
 	{
-	 firstname: "Peter",
-	 lastname: "Pan",
-	 id: 2
+		firstname: "Peter",
+		lastname: "Pan",
+		id: 2
 	},
 	{
-	 firstname: "Matt",
-	 lastname: "berr",
-	 id: 3
+		firstname: "Matt",
+		lastname: "berr",
+		id: 3
 	}
 ];
 
@@ -21,8 +21,8 @@ function getClients() {
 }
 
 function getOneClient(idValue) {
-	for(var i = 0; i < clients.length; i++) {
-		if(clients[i].id == idvalue) {
+	for (var i = 0; i < clients.length; i++) {
+		if (clients[i].id == idvalue) {
 			return clients[i]
 		}
 	}
@@ -35,14 +35,16 @@ function createOne(jsonClient) {
 }
 
 function findById(idValue) {
-	for(var i = 0; i < clients.length; i++) {
+	for (var i = 0; i < clients.length; i++) {
 		if (clients[i].id == idValue) {
 			return clients[i].id;
 		}
-	
+	}
+}
+
 function update(idValue) {
-	for(var i = 0; i < clients.length; i++) {
-		if(clients[i].id == idValue) {
+	for (var i = 0; i < clients.length; i++) {
+		if (clients[i].id == idValue) {
 			clients[i].firstname = "Linh02";
 			clients[i].lastname = "Do02";
 			return clients[i];
@@ -51,11 +53,11 @@ function update(idValue) {
 }
 
 function deleteOne(idValue) {
-	for(var i = 0; i < clients.length; i++) {
-		if(clients[i].id == idvalue) {
+	for (var i = 0; i < clients.length; i++) {
+		if (clients[i].id == idvalue) {
 			delete clients[i];
-			return clients;	
-		}	
+			return clients;
+		}
 	}
 }
 

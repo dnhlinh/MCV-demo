@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express()
 
-// Import Clients Model for database 
+// Import Clients Model for database
 const ClientModel = require('../models/client')
 
 // List clients with reduced information
@@ -14,7 +14,7 @@ router.get('/', function(req,res) {
 // Return single Client This have all the information
 router.get('/:id', function(req,res) {
 	let client = ClientModel.getOneClient(req.params.id) // client or undefined
-	if(client) {
+	if(client != undefined) {
 	 	res.status(200).json(client)
 	}
 	else {

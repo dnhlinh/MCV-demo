@@ -28,9 +28,10 @@ function createOne(jsonClient) {
 
 function getOneClient(idValue) {
 	let index = indexById(idValue)
-	if (index) {
+	if (index != undefined) {
 		return clients[index]
 	}
+
 	return undefined
 }
 
@@ -45,7 +46,7 @@ function indexById(idValue) {
 
 function update(idValue, clientJSON) {
 	index = indexById(idValue)
-	if (index){
+	if (index != undefined){
 		clients[index] = clientJSON
 		return clientJSON
 	}
@@ -55,7 +56,7 @@ function update(idValue, clientJSON) {
 
 function deleteOne(idValue) {
 	index = indexById(idValue)
-	if (index){
+	if (index != undefined){
 		delete clients[index];
 		return true
 	}

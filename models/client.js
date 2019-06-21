@@ -20,38 +20,37 @@ function getClients() {
 	return clients;
 }
 
-function getOneClient(idValue) {
-	for (var i = 0; i < clients.length; i++) {
-		if (clients[i].id == idValue) {
-			return clients[i]
-		}
-	}
-
-	return undefined
-}
-
 function createOne(jsonClient) {
 	jsonClient.id = clients.length + 1;
 	clients.push(jsonClient);
 	return jsonClient;
 }
 
-function findById(idValue) {
-	for (var i = 0; i < clients.length; i++) {
-		if (clients[i].id == idValue) {
-			return clients[i].id;
-		}
+function getOneClient(idValue) {
+	let index = indexById(idValue)
+	if (index) {
+		return clients[index]
 	}
+	return undefined
 }
 
-function update(idValue) {
+function indexById(idValue) {
 	for (var i = 0; i < clients.length; i++) {
 		if (clients[i].id == idValue) {
-			clients[i].firstname = "Linh02";
-			clients[i].lastname = "Do02";
-			return clients[i];
+			return i;
 		}
 	}
+	return undefined
+}
+
+function update(idValue, clientJSON) {
+	index = indexById(idValue)
+	if (index){
+		clients[index] = clientJSON
+		return clientJSON
+	}
+
+	return undefined
 }
 
 function deleteOne(idValue) {

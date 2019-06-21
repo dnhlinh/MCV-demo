@@ -36,11 +36,10 @@ router.post('/', function(req, res) {
 })
 
 // Edit a Client
-router.put('/', function(req,res){
-	let idFound = ClientModel.findById(req.client.id)  
-	if (clientid) {
-			let updateClient = ClientModel.update(req.client.id)	
-			res.status(200).json({client: updateClient})	
+router.put('/:id', function(req,res){
+	let updateClient = ClientModel.update(req.params.id, req.body)
+	if (updateClient) {
+			res.status(200).json(updateClient)
 	}
 	else {
 			res.status(404).json({error: "Client not found"})

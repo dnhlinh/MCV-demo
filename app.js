@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.use('/clients', require('./controllers/clientsController'))
+app.use('/organizations', require('./controllers/organizationController'))
 
 app.get('/', function(req, res) {
 	return res.send('Database')

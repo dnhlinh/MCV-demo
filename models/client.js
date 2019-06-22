@@ -1,31 +1,23 @@
 let clients = [
 	{
-	firstname: "Linh",
-	lastname: "Do",
-	id: 1
+		firstname: "Linh",
+		lastname: "Do",
+		id: 1
 	},
 	{
-	 firstname: "Peter",
-	 lastname: "Pan",
-	 id: 2
+		firstname: "Peter",
+		lastname: "Pan",
+		id: 2
 	},
 	{
-	 firstname: "Matt",
-	 lastname: "berr",
-	 id: 3
+		firstname: "Matt",
+		lastname: "berr",
+		id: 3
 	}
 ];
 
 function getClients() {
 	return clients;
-}
-
-function getOneClient(idValue) {
-	for(var i = 0; i < clients.length; i++) {
-		if(clients[i].id == idvalue) {
-			return clients[i]
-		}
-	}
 }
 
 function createOne(jsonClient) {
@@ -34,34 +26,45 @@ function createOne(jsonClient) {
 	return jsonClient;
 }
 
-function findById(idValue) {
-	for(var i = 0; i < clients.length; i++) {
+function getOneClient(idValue) {
+	let index = indexById(idValue)
+	if (index != undefined) {
+		return clients[index]
+	}
+
+	return undefined
+}
+
+function indexById(idValue) {
+	for (var i = 0; i < clients.length; i++) {
 		if (clients[i].id == idValue) {
-			return clients[i].id;
-		}
-	
-function update(idValue) {
-	for(var i = 0; i < clients.length; i++) {
-		if(clients[i].id == idValue) {
-			clients[i].firstname = "Linh02";
-			clients[i].lastname = "Do02";
-			return clients[i];
+			return i;
 		}
 	}
+	return undefined
+}
+
+function update(idValue, clientJSON) {
+	index = indexById(idValue)
+	if (index != undefined){
+		clients[index] = clientJSON
+		return clientJSON
+	}
+
+	return undefined
 }
 
 function deleteOne(idValue) {
-	for(var i = 0; i < clients.length; i++) {
-		if(clients[i].id == idvalue) {
-			delete clients[i];
-			return clients;	
-		}	
+	index = indexById(idValue)
+	if (index != undefined){
+		delete clients[index];
+		return true
 	}
+	return false
 }
 
 module.exports.getClients = getClients
 module.exports.getOneClient = getOneClient
 module.exports.createOne = createOne
-module.exports.findById = findById
 module.exports.update = update
 module.exports.deleteOne = deleteOne

@@ -27,18 +27,18 @@ router.get('/:id', function(req,res) {
 router.post('/', function(req, res) {
 	let newClient = ClientModel.createOne(req.body)
 
-	if(newClient) {
+	if(newClient != undefined) {
 		res.json({client: newClient})
 	}
 	else {
-		res.json({error: 'Client can\'t be created'})
+		res.json({error: 'Client cannot be created'})
 	}
 })
 
 // Edit a Client
 router.put('/:id', function(req,res){
 	let updateClient = ClientModel.update(req.params.id, req.body)
-	if (updateClient) {
+	if (updateClient != undefined) {
 			res.status(200).json(updateClient)
 	}
 	else {

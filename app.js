@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 
-//app.use('/clients', require('./controllers/clientsController'))
+app.use('/clients', require('./controllers/clientsController'))
 app.use('/organizations', require('./controllers/organizationController'))
 app.use('/projects', require('./controllers/projectsController'))
 
@@ -22,4 +22,3 @@ app.listen(port, function() {
 	console.log('app listening on port ' + port)
 })
 
-//module.exports = app

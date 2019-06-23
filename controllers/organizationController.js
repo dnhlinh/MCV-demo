@@ -8,7 +8,7 @@ const OrganizationModel = require('../models/organization')
 // List Organization with reduced information
 router.get('/', function(req,res) {
   let list =	OrganizationModel.getOrganization(); // list or []
-	res.json({organizations: list})
+	res.status(200).json({organizations: list})
 })
 
 // Return single Organization This have all the information
@@ -27,10 +27,10 @@ router.get('/:id', function(req,res) {
 router.post('/', function(req, res) {
 	let newOrg = OrganizationModel.createOne(req.body)
 	if(newOrg) {
-		res.json({organization: newOrg})
+		res.status(201).json({organization: newOrg})
 	}
 	else {
-		res.json({error: 'Client can\'t be created'})
+		res.status(500).json({error: 'Client can\'t be created'})
 	}
 })
 

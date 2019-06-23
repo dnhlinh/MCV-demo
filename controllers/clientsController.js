@@ -28,33 +28,36 @@ router.post('/', function(req, res) {
 	let newClient = ClientModel.createOne(req.body)
 
 	if(newClient != undefined) {
-		res.json({client: newClient})
+		res.status(201).json({client: newClient})
 	}
 	else {
-		res.json({error: 'Client cannot be created'})
+		res.status(400).json({error: "Invalid project ID"})
 	}
 })
 
 // Edit a Client
 router.put('/:id', function(req,res){
 	let updateClient = ClientModel.update(req.params.id, req.body)
-	if (updateClient != undefined) {
-			res.status(200).json(updateClient)
-	}
+	if (updateClient != undefined && updateClient != false) {
+		res.status(200).json(updateClient)
+    }
+    else if (updateClient == false) {
+        res.status(400).json({error: "Invalid project ID"})
+    }
 	else {
-			res.status(404).json({error: "Client not found"})
+		res.status(404).json({error: "Client not found"})
 	}
 })
 
 // Delete a Client by ID
 router.delete('/:id', function(req,res) {
-		let deleteClient = ClientModel.deleteOne(req.params.id)
-		if (deleteClient) {
-			res.status(200).json({result: "Successfully deleted"})
-		}
-		else {
-			res.status(500).json({result: "Something went wrong"})
-		}
+	let deleteClient = ClientModel.deleteOne(req.params.id)
+	if (deleteClient) {
+		res.status(200).json({result: "Successfully deleted"})
+	}
+	else {
+		res.status(500).json({result: "Something went wrong"})
+	}
 })
 
 module.exports = router

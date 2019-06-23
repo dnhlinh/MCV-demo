@@ -62,3 +62,4 @@ module.exports.getOneOrganization = getOneOrganization
 module.exports.createOne = createOne
 module.exports.update = update
 module.exports.deleteOne = deleteOne
+module.exports.indexbyID = indexbyID
